@@ -1,0 +1,201 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    int a[1000],b[2000],x,y,m=2,p=2,dem=1;
+    cin>>x>>y;
+    a[0]=x; a[1]=y;
+    b[0]=x; b[1]=y;
+    while(cin>>x>>y)
+    {
+        if(x==a[m-1])
+        {
+            a[m]=y;
+            m++;
+        }
+        b[p]=x;
+        b[p+1]=y;
+        p+=2;
+    }
+    
+    for(int i=0;i<p;i++)
+    {
+        for(int j=i+1;j<p;j++)
+        {
+            if(b[j]==b[i])
+            {
+                for(int k=j;k<p;k++) b[k]=b[k+1];
+                p--;
+            }
+        }
+    }
+    while(p>1)
+    {
+        p/=2;
+        dem++;
+    }
+    if(dem==m) cout<<"yes";
+    else cout<<"no";
+    return 0;
+}
+Bạn đã gửi
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    int a[1000],x,y,m=0,dem=1;
+    while(cin>>x>>y)
+    {
+        a[m]=x;
+        m++;
+    }
+    for(int i=0;i<m;i++)
+    {
+        for(int j=i+1;j<m;j++)
+        {
+            if(a[j]==a[i])
+            {
+                dem++;
+                for(int k=j;k<m;k++) a[k]=a[k+1];
+                m--;
+            }
+        }
+        if(dem>2)
+        {
+            cout<<"no";
+            break;
+        }
+        dem=1;
+    }
+    if(dem==1) cout<<"yes";
+    return 0;
+}
+Bạn đã gửi
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    int a[1000],x,y,m=0,dem=1;
+    while(cin>>x>>y)
+    {
+        a[m]=x;
+        m++;
+    }
+    for(int i=0;i<m;i++)
+    {
+        dem=1;
+        for(int j=i+1;j<m;j++)
+        {
+            if(a[j]==a[i])
+            {
+                dem++;
+                for(int k=j;k<m;k++) a[k]=a[k+1];
+                m--;
+            }
+        }
+        if(dem!=2)
+        {
+            cout<<"no";
+            break;
+        }
+    }
+    if(dem==2) cout<<"yes";
+    return 0;
+}
+Bạn đã gửi
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    int a[1000],b[2000],x,y,m=2,p=2,dem=1,num;
+    cin>>x>>y;
+    a[0]=x; a[1]=y;
+    b[0]=x; b[1]=y;
+    while(cin>>x>>y)
+    {
+        if(x==a[m-1])
+        {
+            a[m]=y;
+            m++;
+        }
+        b[p]=x;
+        b[p+1]=y;
+        p+=2;
+    }
+    
+    for(int i=0;i<p;i++)
+    {
+        for(int j=i+1;j<p;j++)
+        {
+            if(b[j]==b[i])
+            {
+                for(int k=j;k<p;k++) b[k]=b[k+1];
+                p--;
+            }
+        }
+    }
+    num=p;
+    while(p>1)
+    {
+        p/=2;
+        dem++;
+    }
+    if(dem==m)
+    {
+        if(num==pow(2,m)-1) cout<<"yes";
+        else cout<<"no";
+    }
+    else cout<<"no";
+    return 0;
+}
+Bạn đã gửi
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    int a[1000],x,y,m=0,dem=1,SoDinh=0;
+    while(cin>>x>>y)
+    {
+        a[m]=x;
+        m++;
+    }
+    for(int i=0;i<m;i++)
+    {
+        dem=1;
+        for(int j=i+1;j<m;j++)
+        {
+            if(a[j]==a[i])
+            {
+                dem++;
+                for(int k=j;k<m;k++) a[k]=a[k+1];
+                m--;
+            }
+        }
+        if(dem!=2)
+        {
+            SoDinh++;
+        }
+    }
+    cout<<SoDinh;
+    return 0;
+}
